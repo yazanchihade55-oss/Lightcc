@@ -1,0 +1,26 @@
+# CC Studio (iOS) – nur für Color Correction
+
+Eine kleine iPhone-App: Video wählen → `.cube`-Look importieren → Korrekturen einstellen → Video rendern.
+
+**Was die App kann**
+- Video aus der Mediathek, Vorschau Vorher/Nachher
+- `.cube`-LUTs importieren (aus „Dateien“), mehrere speichern
+- Stärke (0–100 %), Graustich entfernen, Farbton-Limit (gegen grüne/gelbe Haut), Schwarz korrigieren
+- Helligkeit, Kontrast, Sättigung
+- Rendern in HEVC (Ton bleibt), in Mediathek sichern oder teilen
+- Die korrigierte `.cube` als Datei weitergeben
+
+**Was sie (noch) nicht kann:** `.ffx` lesen. Dafür nutzt du weiter `FFX_to_CUBE_Pro.ipynb` in Colab und importierst die `.cube` hier.
+
+## IPA ohne Mac bauen (GitHub, kostenlos)
+1. Auf github.com ein Konto anlegen und ein **neues Repository** erstellen (öffentlich ist am einfachsten).
+2. Den **Inhalt dieses Ordners** hochladen: `project.yml`, den Ordner `Sources`, `README.md`.
+3. Den Ordner `.github/workflows` anlegen: **Add file → Create new file**, als Name `.github/workflows/build.yml` eintippen und den Inhalt der Datei `build.yml` einfügen.
+4. Oben auf **Actions** → „IPA bauen“ → **Run workflow**. Nach etwa 5–10 Minuten steht unten unter **Artifacts** die Datei `CCStudio-IPA`. Herunterladen und entpacken → `CCStudio-unsigned.ipa`.
+5. Schlägt der Bau fehl: den roten Fehlertext aus dem Log kopieren und mir schicken.
+
+## Aufs iPhone bringen
+Die IPA ist unsigniert, sie muss einmal signiert werden:
+- **Windows/Mac:** Sideloadly (sideloadly.io) oder AltStore, Apple-ID eingeben, IPA auswählen, installieren.
+- Mit einer kostenlosen Apple-ID läuft die App **7 Tage**, danach neu installieren (AltStore kann automatisch erneuern).
+- Auf dem iPhone: Einstellungen → Allgemein → VPN & Geräteverwaltung → dem Entwickler vertrauen.
